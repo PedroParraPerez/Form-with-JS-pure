@@ -1,52 +1,93 @@
 import "./style.css";
 window.onload = function() {};
 
-const OnlyLetters = /^[a-z][a-z\s]*$/;
+const OnlyLetters = /^[A-Za-z\s*]+$/;
+const OnlyNumbers = /^[0-9]+$/;
+const mail_format = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const form = document.querySelector(".myForm");
-const alert = document.querySelector("#alert");
+const alerta = document.querySelector(".div_alert");
 const name = document.querySelector("#name");
 const surname = document.querySelector("#surname");
 const age = document.querySelector("#age");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const repPass = document.querySelector("#repPass");
-const submit = document.querySelector("#submit");
+const ButtonSubmit = document.querySelector("#submit");
 const inputs = document.querySelectorAll(".inputs");
+
+const InvToVal = v => {
+  v.classList.remove("isinvalid");
+  v.classList.add("isvalid");
+};
+
+const ValtoInv = v => {
+  v.classList.remove("isvalid");
+  v.classList.add("isinvalid");
+};
 
 name.addEventListener("focusout", e => {
   if (name.value.match(OnlyLetters)) {
-    name.classList.remove("isinvalid");
-    name.classList.add("isvalid");
+    InvToVal(name);
   } else {
-    name.classList.remove("isvalid");
-    name.classList.add("isinvalid");
+    ValtoInv(name);
   }
 });
+
 surname.addEventListener("focusout", e => {
   if (surname.value.match(OnlyLetters)) {
-    surname.classList.remove("isinvalid");
-    surname.classList.add("isvalid");
+    InvToVal(surname);
   } else {
-    surname.classList.remove("isvalid");
-    surname.classList.add("isinvalid");
+    ValtoInv(surname);
   }
 });
+age.addEventListener("focusout", e => {
+  if (age.value.match(OnlyNumbers)) {
+    InvToVal(age);
+  } else {
+    ValtoInv(age);
+  }
+});
+email.addEventListener("focusout", e => {
+  if (email.value.match(mail_format)) {
+    InvToVal(email);
+  } else {
+    ValtoInv(email);
+  }
+});
+
 password.addEventListener("focusout", e => {
   if (password.value.length > 7) {
-    password.classList.remove("isinvalid");
-    password.classList.add("isvalid");
+    InvToVal(password);
   } else {
-    password.classList.remove("isvalid");
-    password.classList.add("isinvalid");
+    ValtoInv(password);
   }
 });
 
 repPass.addEventListener("focusout", e => {
   if (repPass.value == password.value && password.value.length > 7) {
-    repPass.classList.remove("isinvalid");
-    repPass.classList.add("isvalid");
+    InvToVal(repPass);
   } else {
-    repPass.classList.remove("isvalid");
-    repPass.classList.add("isinvalid");
+    ValtoInv(repPass);
+  }
+});
+
+const submit = v => {
+  v.classList.contains("isvalid");
+};
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  if (
+    name.classList.contains("isvalid") &&
+    surname.classList.contains("isvalid") &&
+    age.classList.contains("isvalid") &&
+    email.classList.contains("isvalid") &&
+    password.classList.contains("isvalid") &&
+    repPass.classList.contains("isvalid")
+  ) {
+    console.log("se ha enviado");
+    alert("Gracias por tu tiempo!");
+    alerta.classList.replace("dblock", "dnone");
+  } else {
+    alerta.classList.replace("dnone", "dblock");
   }
 });

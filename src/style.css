@@ -13,11 +13,20 @@ body {
   padding-left: 3%;
   margin-bottom: 5%;
 }
-.alert {
-  display: block;
-  width: 50%;
+
+.d-none {
+  display: none;
+}
+
+.div_alert {
+  text-align: center;
+  width: 60%;
   margin: auto;
   margin-bottom: 5%;
+  border-radius: 2pt;
+  background-color: rgb(228, 125, 125);
+  border: 2pt solid red;
+  color: white;
 }
 .myForm {
   width: 50%;
@@ -41,4 +50,10 @@ body {
 }
 .isinvalid {
   border: 2pt solid red;
+}
+.dnone {
+  display: none;
+}
+.dblock {
+  display: block;
 }
