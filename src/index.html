@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
+    <title>Form with validation js</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="shortcut icon" href="./4geeks.ico" />
+    <link rel="stylesheet" href="style" />
   </head>
   <body>
     <div class="wrap">
@@ -29,11 +30,17 @@
         <input type="email" id="email" class="inputs" name="email" />
         <label for="card">Password:</label>
         <input type="password" id="password" class="inputs" name="password" />
-        <label for="card"> Repeat password:</label>
-        <input type="text" id="repPass" class="inputs" name="password" />
+        <label for="repPas"> Repeat password:</label>
+        <input
+          type="password"
+          id="repPass"
+          class="inputs"
+          name="rep_password"
+        />
         <label for="teCondi"></label>
         <button type="submit" id="submit">Send</button>
       </form>
     </div>
+    <script src="app.js"></script>
   </body>
 </html>

@@ -37,4 +37,8 @@ body {
   margin-bottom: 3%;
 }
 .isvalid {
+  border: 2pt solid green;
+}
+.isinvalid {
+  border: 2pt solid red;
 }
