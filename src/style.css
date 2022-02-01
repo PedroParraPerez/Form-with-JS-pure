@@ -2,15 +2,17 @@ body {
   background-color: grey;
 }
 .wrap {
-  border-radius: 5%;
+  border: 0.3rem solid black;
+  border-radius: 2rem;
   background-color: white;
-  width: 30%;
+  width: 30em;
+  height: 25rem;
   margin: auto;
-  margin-top: 15%;
+  margin-top: 5rem;
 }
 .title {
+  text-align: center;
   padding-top: 3%;
-  padding-left: 3%;
   margin-bottom: 5%;
 }
 
@@ -38,18 +40,21 @@ body {
   display: block;
 }
 #submit {
+  width: 7rem;
   color: white;
   border-radius: 10%;
   margin-top: 5%;
-  margin-left: 35%;
   background-color: blue;
   margin-bottom: 3%;
 }
+#submit:hover {
+  cursor: pointer;
+}
 .isvalid {
-  border: 2pt solid green;
+  border: 3pt solid green;
 }
 .isinvalid {
-  border: 2pt solid red;
+  border: 3pt solid red;
 }
 .dnone {
   display: none;
